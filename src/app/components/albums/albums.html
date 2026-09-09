@@ -15,22 +15,20 @@
         </tr>
     </thead>
     <tbody>
-        <!-- @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.FAlbumName)</td>
-                <td>@Html.DisplayFor(modelItem => item.FReleaseDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.FAlbumType)</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.FAlbumId" class="btn btn-secondary">編輯</a>
-                    <form asp-action="Delete" asp-route-id="@item.FAlbumId" method="post" style="display: inline;">
-                        <button class="btn btn-danger">刪除</button>
-                    </form>
-                </td>
-            </tr>
-        } -->
-        <!-- 超假資料 -->
+@for (item of albumList; track item.id)
+{
         <tr>
+            <td>{{ item.albumName }}</td>
+            <td>{{ item.releaseDate }}</td>
+            <td>{{ item.albumType }}</td>
+            <td class="d-flex gap-2">
+                <button type="button" class="btn btn-secondary">編輯</button>
+                <button class="btn btn-danger">刪除</button>
+            </td>
+        </tr>
+}
+        <!-- 超假資料 -->
+        <!-- <tr>
             <td>&#x8FF7;&#x8DE1;&#x6CE2;</td>
             <td>11/01/2023</td>
             <td>Album</td>
@@ -65,7 +63,7 @@
                 <button type="button" class="btn btn-secondary">編輯</button>
                 <button class="btn btn-danger">刪除</button>
             </td>
-        </tr>
+        </tr> -->
         <!-- 假資料end -->
     </tbody>
 </table>
