@@ -1,10 +1,9 @@
 import { AlbumService } from './../../services/album-service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { RouterLink } from "@angular/router";
 import { AlbumData } from '../../interfaces/album-data';
 
 @Component({
-  imports: [RouterLink],
+  imports: [],
   selector: 'app-albums',
   styleUrl: './albums.css',
   templateUrl: './albums.html',
@@ -18,8 +17,6 @@ export class Albums implements OnInit {
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.loadAlbumData();
   }
 
@@ -34,7 +31,8 @@ export class Albums implements OnInit {
           // 其他方法: 重新載入所有 album 資料, 確保內容是否已同步, 與其正確性
           //this.loadAlbumData();
         },
-        error:() => {
+        error:(errResponse) => {
+          console.log(errResponse);
           console.log("delete failed");
         }
       });
