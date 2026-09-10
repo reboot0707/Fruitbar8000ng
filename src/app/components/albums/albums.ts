@@ -20,12 +20,12 @@ export class Albums implements OnInit {
     this.loadAlbumData();
   }
 
-  songDelete(idToBeDeleted: number){
+  albumDelete(idToBeDeleted: number){
     const confirmResult: boolean = confirm('確定要永久刪除這張專輯嗎？');
     if( confirmResult === true) {
       this.albumService.delAlbum(idToBeDeleted).subscribe({
         next:() => {
-          console.log("song deleted.");
+          console.log("album deleted.");
           // 前端快速濾除已刪除項目
           this.albumList = this.albumList.filter(x => x.id !== idToBeDeleted);
           // 其他方法: 重新載入所有 album 資料, 確保內容是否已同步, 與其正確性
@@ -33,7 +33,7 @@ export class Albums implements OnInit {
         },
         error:(errResponse) => {
           console.log(errResponse);
-          console.log("delete failed");
+          console.log("delete failed.");
         }
       });
       return;
