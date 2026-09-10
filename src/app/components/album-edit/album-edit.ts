@@ -13,6 +13,9 @@ import { FormsModule } from "@angular/forms";
   changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class AlbumEdit implements OnInit {
+
+  editId: number = 0;
+
   formAlbumData: AlbumData = {
     id: 0,
     albumName: '',
@@ -20,9 +23,9 @@ export class AlbumEdit implements OnInit {
     releaseDate: '',
   }
 
-  formAlbumName = '';
-  formAlbumType: string | null = '';
-  formReleaseDate: string | null = '';
+  inputAlbumName = '';
+  inputAlbumType: string | null = '';
+  inputReleaseDate: string | null = '';
 
   constructor(
     private albumService: AlbumService,
@@ -31,7 +34,8 @@ export class AlbumEdit implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.loadAlbumDataById(this.activatedRoute.snapshot.params['id']) ?? {
+    this.editId = this.activatedRoute.snapshot.params['id'];
+    this.loadAlbumDataById(this.editId) ?? {
       id: 0,
       albumName: '',
       albumType: '',
@@ -39,12 +43,28 @@ export class AlbumEdit implements OnInit {
     };
   }
 
+  goUpdateAlbum() {
+    this.formAlbumData.albumName = this.inputAlbumName;
+    this.formAlbumData.albumType = this.inputAlbumType;
+    this.formAlbumData.releaseDate = this.inputReleaseDate;
+    this.albumService.updateAlbum(this.editId, this.formAlbumData).subscribe({
+      next: () => {
+        console.log("album updated");
+        this.router.navigate(['/albums'])
+      },
+      error: (errResponse) => {
+        console.error(errResponse);
+        console.log("update failed");
+      }
+    })
+  }
+
   private loadAlbumDataById(id: number) {
     this.albumService.getAlbumById(id).subscribe((data) => {
       this.formAlbumData = data;
-      this.formAlbumName = data.albumName;
-      this.formAlbumType = data.albumType;
-      this.formReleaseDate = data.releaseDate;
+      this.inputAlbumName = data.albumName;
+      this.inputAlbumType = data.albumType;
+      this.inputReleaseDate = data.releaseDate;
     });
   }
 }

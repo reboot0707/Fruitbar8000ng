@@ -25,6 +25,10 @@ export class AlbumService {
     return this.httpClient.post(`${this.apiUrl}`, newAlbumData);
   }
 
+  updateAlbum(id:number, updateAlbumData: AlbumData){
+    return this.httpClient.put(`${this.apiUrl}/${id}`, updateAlbumData)
+  }
+
   delAlbum(idToBeDeleted: number){
     return this.httpClient.delete(`${this.apiUrl}/${idToBeDeleted}`);
   }

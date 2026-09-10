@@ -7,16 +7,16 @@
             <div class="text-danger"></div>
             <div class="form-group">
                 <label class="control-label">創作者名稱</label>
-                <input class="form-control" [(ngModel)]="this.formArtistName"/>
+                <input class="form-control" [(ngModel)]="this.inputArtistName"/>
                 <span class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-label">創作者類型</label>
-                <input class="form-control" [(ngModel)]="this.formArtistType"/>
+                <input class="form-control" [(ngModel)]="this.inputArtistType"/>
                 <span class="text-danger"></span>
             </div>
             <div class="form-group mt-2 d-flex gap-2">
-                <button class="btn btn-primary">更新</button>
+                <button class="btn btn-primary" (click)="goUpdateArtist()">更新</button>
                 <button class="btn btn-secondary" routerLink="/artists">回到列表</button>
             </div>
           </div>
