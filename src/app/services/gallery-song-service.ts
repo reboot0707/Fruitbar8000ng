@@ -16,6 +16,10 @@ export class GallerySongService {
     return this.httpClient.get<GallerySongData[]>(`${this.apiUrl}`);
   }
 
+  getGaSongById(id: number){
+    return this.httpClient.get<GallerySongData>(`${this.apiUrl}/${id}`);
+  }
+
   delGaSong(idToBeDeleted: number){
     return this.httpClient.delete(`${this.apiUrl}/${idToBeDeleted}`)
   }

@@ -17,6 +17,10 @@ export class AlbumService {
     return this.httpClient.get<AlbumData[]>(`${this.apiUrl}`);
   }
 
+  getAlbumById(id: number){
+    return this.httpClient.get<AlbumData>(`${this.apiUrl}/${id}`);
+  }
+
   delAlbum(idToBeDeleted: number){
     return this.httpClient.delete(`${this.apiUrl}/${idToBeDeleted}`);
   }
