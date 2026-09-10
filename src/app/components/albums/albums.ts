@@ -1,9 +1,10 @@
 import { AlbumService } from './../../services/album-service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AlbumData } from '../../interfaces/album-data';
+import { RouterLink } from "@angular/router";
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-albums',
   styleUrl: './albums.css',
   templateUrl: './albums.html',

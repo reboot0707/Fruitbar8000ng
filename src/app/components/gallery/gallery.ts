@@ -2,9 +2,10 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { GallerySongData } from '../../interfaces/gallery-song-data';
 import { GallerySongListData } from '../../interfaces/gallery-song-list-data';
 import { GallerySongService } from '../../services/gallery-song-service';
+import { RouterLink } from "@angular/router";
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-gallery',
   styleUrl: './gallery.css',
   templateUrl: './gallery.html',

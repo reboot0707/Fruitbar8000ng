@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ArtistData } from '../../interfaces/artist-data';
 import { ArtistService } from '../../services/artist-service';
+import { RouterLink } from "@angular/router";
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-artists',
   styleUrl: './artists.css',
   templateUrl: './artists.html',
