@@ -1,6 +1,9 @@
+import { AlbumData } from "./album-data";
+import { ArtistData } from "./artist-data";
+
 export interface GallerySongData {
   id: number;
   songName: string | null;
-  artistIds: number[];
-  albumIds: number[];
+  relatedAlbums: AlbumData[];
+  relatedArtists: ArtistData[];
 }
