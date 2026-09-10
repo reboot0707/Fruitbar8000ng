@@ -14,12 +14,20 @@ export const routes: Routes = [
     loadComponent: () => import('./components/album-create/album-create').then(m => m.AlbumCreate)
   },
   {
+    path: 'albums/edit/:id',
+    loadComponent: () => import('./components/album-edit/album-edit').then(m => m.AlbumEdit)
+  },
+  {
     path: 'artists',
     loadComponent: () => import('./components/artists/artists').then(m => m.Artists)
   },
   {
     path: 'artists/create',
     loadComponent: () => import('./components/artist-create/artist-create').then(m => m.ArtistCreate)
+  },
+  {
+    path: 'artists/edit/:id',
+    loadComponent: () => import('./components/artist-edit/artist-edit').then(m => m.ArtistEdit)
   },
   {
     path: 'gallery',
@@ -29,6 +37,10 @@ export const routes: Routes = [
   {
     path: 'gallery/create',
     loadComponent: () => import('./components/gallery-song-create/gallery-song-create').then(m => m.GallerySongCreate)
+  },
+  {
+    path: 'gallery/edit/:id',
+    loadComponent: () => import('./components/gallery-song-edit/gallery-song-edit').then(m => m.GallerySongEdit)
   },
   {
     path: 'privacy',
