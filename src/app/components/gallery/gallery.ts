@@ -30,7 +30,7 @@ export class Gallery implements OnInit {
           this.gaSongList = this.gaSongList.filter(x => x.id !== idToBeDeleted);
         },
         error:(errResponse) => {
-          console.log(errResponse)
+          console.error(errResponse)
           console.log("deleted failed.");;
         }
       })

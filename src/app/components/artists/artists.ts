@@ -28,7 +28,7 @@ export class Artists implements OnInit {
           this.artistList = this.artistList.filter(x => x.id !== idToBeDeleted);
         },
         error:(errResponse) => {
-          console.log(errResponse);
+          console.error(errResponse);
           console.log("delete failed");
         }
       })

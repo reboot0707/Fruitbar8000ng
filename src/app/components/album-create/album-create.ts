@@ -12,7 +12,7 @@ import { AlbumService } from '../../services/album-service';
 })
 export class AlbumCreate {
 
-  newAlbumData: AlbumData = {
+  formAlbumData: AlbumData = {
     id: 0,
     albumName: '',
     albumType: '',
@@ -29,16 +29,16 @@ export class AlbumCreate {
   }
 
   goAddAlbum() {
-    this.newAlbumData.albumName = this.inputAlbumName;
-    this.newAlbumData.albumType = this.inputAlbumType;
-    this.newAlbumData.releaseDate = this.inputReleaseDate;
-    this.albumService.addAlbum(this.newAlbumData).subscribe({
+    this.formAlbumData.albumName = this.inputAlbumName;
+    this.formAlbumData.albumType = this.inputAlbumType;
+    this.formAlbumData.releaseDate = this.inputReleaseDate;
+    this.albumService.addAlbum(this.formAlbumData).subscribe({
       next:()=>{
         console.log("song added");
         this.router.navigate(['/albums']);
       },
       error:(errResponse) => {
-        console.log(errResponse);
+        console.error(errResponse);
         console.log("delete failed");
       }
     });

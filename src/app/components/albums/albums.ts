@@ -33,7 +33,7 @@ export class Albums implements OnInit {
           //this.loadAlbumData();
         },
         error:(errResponse) => {
-          console.log(errResponse);
+          console.error(errResponse);
           console.log("delete failed.");
         }
       });

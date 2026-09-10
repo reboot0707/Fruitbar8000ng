@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ArtistCreate {
 
-  newArtistData: ArtistData = {
+  formArtistData: ArtistData = {
     id: 0,
     artistName: '',
     artistType: ''
@@ -27,15 +27,15 @@ export class ArtistCreate {
   }
 
   goAddArtist() {
-    this.newArtistData.artistName = this.inputArtistName;
-    this.newArtistData.artistType = this.inputArtistType;
-    this.artistService.addArtist(this.newArtistData).subscribe({
+    this.formArtistData.artistName = this.inputArtistName;
+    this.formArtistData.artistType = this.inputArtistType;
+    this.artistService.addArtist(this.formArtistData).subscribe({
       next:()=>{
-        console.log("song added");
+        console.log("artist added");
         this.router.navigate(['/artists']);
       },
       error:(errResponse) => {
-        console.log(errResponse);
+        console.error(errResponse);
         console.log("delete failed");
       }
     });
