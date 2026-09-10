@@ -20,6 +20,10 @@ export class ArtistService {
     return this.httpClient.get<ArtistData>(`${this.apiUrl}/${id}`);
   }
 
+  addArtist(newArtistData: ArtistData) {
+    return this.httpClient.post(`${this.apiUrl}`, newArtistData);
+  }
+
   delArtist(idToBeDeleted: number) {
     return this.httpClient.delete(`${this.apiUrl}/${idToBeDeleted}`);
   }
