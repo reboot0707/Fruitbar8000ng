@@ -17,6 +17,6 @@ export class ArtistService {
   }
 
   delArtist(idToBeDeleted: number) {
-    return this.httpClient.delete<ArtistData[]>(`${this.apiUrl}/${idToBeDeleted}`);
+    return this.httpClient.delete(`${this.apiUrl}/${idToBeDeleted}`);
   }
 }
