@@ -16,13 +16,18 @@
             <div class="form-group my-2">
                 <label class="control-label">樂曲創作者</label>
                 <div class="gap-2">
-                    <select class="form-select flex-grow-1">
+                  <select class="form-select flex-grow-1">
+@for (item of this.artistList; track item.id) {
+                      <option value="{{ item.id }}">{{ item.artistName }}</option>
+}
                       <!-- 超假資料 -->
+                      <!--
                       <option value="">創作者1</option>
                       <option value="">創作者2</option>
+                      -->
                       <!-- 超假資料end -->
-                    </select>
-                    <a target="_blank" class="btn btn-success flex-shrink-0">新增創作者</a>
+                  </select>
+                  <a target="_blank" class="btn btn-success flex-shrink-0">新增創作者</a>
                 </div>
                 <span class="text-danger"></span>
             </div>
@@ -31,9 +36,14 @@
                 <label class="control-label"></label>
                 <div class="gap-2">
                     <select class="form-select flex-grow-1">
+@for (item of this.albumList; track item.id) {
+                      <option value="{{ item.id }}">{{ item.albumName  }}</option>
+}
                       <!-- 超假資料 -->
+                      <!--
                       <option value="">專輯1</option>
                       <option value="">專輯2</option>
+                      -->
                       <!-- 超假資料end -->
                     </select>
                     <button target="_blank" class="btn btn-success flex-shrink-0">新增專輯</button>
