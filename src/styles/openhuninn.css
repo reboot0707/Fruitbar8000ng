@@ -1,0 +1,12 @@
+/* 全站字型，包含 Bootstrap 元件與原生表單控制項 */
+:root {
+  --bs-body-font-family: 'Huninn', sans-serif;
+}
+
+body {
+  font-family: 'Huninn', sans-serif;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+}
