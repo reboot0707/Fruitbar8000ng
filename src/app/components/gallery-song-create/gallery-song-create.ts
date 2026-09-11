@@ -6,10 +6,10 @@ import { GallerySongService } from '../../services/gallery-song-service';
 import { ArtistData } from '../../interfaces/artist-data';
 import { AlbumData } from '../../interfaces/album-data';
 import { GallerySongWriteData } from '../../interfaces/gallery-song-write-data';
-import { GallerySongData } from '../../interfaces/gallery-song-data';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule],
   selector: 'app-gallery-song-create',
   styleUrl: './gallery-song-create.css',
   templateUrl: './gallery-song-create.html',
@@ -54,6 +54,7 @@ export class GallerySongCreate implements OnInit {
     this.formSongData.songName = this.inputSongName;
     this.formSongData.relatedAlbumIds = this.inputRelAlbumIds;
     this.formSongData.relatedArtistIds = this.inputRelArtistIds;
+    console.log(this.formSongData);
     this.gallerySongService.addGaSong(this.formSongData).subscribe({
       next: () => {
         console.log("song added!");

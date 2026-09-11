@@ -9,16 +9,16 @@
 
             <div class="form-group">
                 <label class="control-label">樂曲名稱</label>
-                <input class="form-control" />
+                <input class="form-control" [(ngModel)]="inputSongName"/>
                 <span class="text-danger"></span>
             </div>
 
             <div class="form-group my-2">
-                <label class="control-label">樂曲創作者</label>
+                <label class="control-label">樂曲創作者（使用 Shift/Ctrl 多選）</label>
                 <div class="gap-2">
-                  <select class="form-select flex-grow-1">
+                  <select class="form-select flex-grow-1" multiple="multiple" [(ngModel)]="inputRelArtistIds">
 @for (item of this.artistList; track item.id) {
-                      <option value="{{ item.id }}">{{ item.artistName }}</option>
+                      <option [ngValue]="item.id">{{ item.artistName }}</option>
 }
                       <!-- 超假資料 -->
                       <!--
@@ -33,11 +33,11 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label"></label>
+                <label class="control-label">收錄專輯（使用 Shift/Ctrl 多選）</label>
                 <div class="gap-2">
-                    <select class="form-select flex-grow-1">
+                    <select class="form-select flex-grow-1" multiple="multiple" [(ngModel)]="inputRelAlbumIds">
 @for (item of this.albumList; track item.id) {
-                      <option value="{{ item.id }}">{{ item.albumName  }}</option>
+                      <option [ngValue]="item.id">{{ item.albumName }}</option>
 }
                       <!-- 超假資料 -->
                       <!--
@@ -52,7 +52,7 @@
             </div>
 
             <div class="form-group my-2 d-flex gap-2">
-                <button class="btn btn-primary">新增歌曲</button>
+                <button class="btn btn-primary" (click)="goAddGaSong()">新增歌曲</button>
                 <button class="btn btn-secondary" routerLink="/gallery">回到列表</button>
             </div>
         </div>
