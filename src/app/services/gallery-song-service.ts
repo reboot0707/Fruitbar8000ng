@@ -25,6 +25,14 @@ export class GallerySongService {
     return this.httpClient.post(`${this.apiUrl}`,addSongInfo)
   }
 
+  updateGaSong(
+    idToBeUpdated: number,
+    updateSongInfo: GallerySongWriteData
+  ) {
+    return this.httpClient.put(`${this.apiUrl}/${idToBeUpdated}`,updateSongInfo)
+  }
+
+
   delGaSong(idToBeDeleted: number){
     return this.httpClient.delete(`${this.apiUrl}/${idToBeDeleted}`)
   }
