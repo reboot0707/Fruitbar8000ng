@@ -16,9 +16,9 @@
             <div class="form-group my-2">
                 <label class="control-label">樂曲創作者</label>
                 <div class="gap-2">
-                    <select class="form-select flex-grow-1">
+                    <select class="form-select flex-grow-1" multiple="multiple" [(ngModel)]="inputSongData.relatedArtistIds">
 @for (item of this.artistList; track item.id) {
-                      <option value="{{ item.id }}">{{ item.artistName }}</option>
+                      <option [ngValue]="item.id">{{ item.artistName }}</option>
 }
                       <!-- 超假資料 -->
                       <!--
@@ -35,9 +35,9 @@
             <div class="form-group">
                 <label class="control-label"></label>
                 <div class="gap-2">
-                    <select class="form-select flex-grow-1">
+                    <select class="form-select flex-grow-1" multiple="multiple" [(ngModel)]="inputSongData.relatedAlbumIds">
 @for (item of this.albumList; track item.id) {
-                      <option value="{{ item.id }}">{{ item.albumName  }}</option>
+                      <option [ngValue]="item.id">{{ item.albumName  }}</option>
 }
                       <!-- 超假資料 -->
                       <!--
@@ -52,7 +52,7 @@
             </div>
 
             <div class="form-group my-2 d-flex gap-2">
-                <button class="btn btn-primary">更新</button>
+                <button class="btn btn-primary" (click)="goUpdateGaSongData()">更新</button>
                 <button class="btn btn-secondary" routerLink="/gallery">回到列表</button>
             </div>
         </div>

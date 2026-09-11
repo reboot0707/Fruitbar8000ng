@@ -55,16 +55,23 @@ export class GallerySongEdit implements OnInit{
       relatedArtistIds: [],
     };
   }
+
   loadArtistsData(){
     this.artistService.getArtist().subscribe((data) => {
       this.artistList = data;
     })
   }
+
   loadAlbumsData(){
     this.albumService.getAlbum().subscribe((data)=>{
       this.albumList = data;
     })
   }
+
+  goUpdateGaSongData(){
+    console.log(this.inputSongData);
+  }
+
   private loadGaSongDataById(id: number){
     this.gallerySongService.getGaSongById(id).subscribe((data)=>{
       this.formSongData.id = data.id;
