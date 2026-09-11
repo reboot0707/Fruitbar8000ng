@@ -34,7 +34,16 @@ export class AlbumEdit implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.editId = this.activatedRoute.snapshot.params['id'];
+    const paramId = Number(this.activatedRoute.snapshot.params['id']);
+    if (
+      paramId === null ||
+      !Number.isSafeInteger(paramId) ||
+      paramId <= 0
+    ) {
+      console.error("missing parameter!");
+      this.router.navigate(['/albums']);
+    }
+    this.editId = paramId;
     this.loadAlbumDataById(this.editId) ?? {
       id: 0,
       albumName: '',
