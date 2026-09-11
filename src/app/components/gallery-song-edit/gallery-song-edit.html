@@ -14,7 +14,7 @@
             </div>
 
             <div class="form-group my-2">
-                <label class="control-label">樂曲創作者</label>
+                <label class="control-label">樂曲創作者（使用 Shift/Ctrl 多選）</label>
                 <div class="gap-2">
                     <select class="form-select flex-grow-1" multiple="multiple" [(ngModel)]="inputSongData.relatedArtistIds">
 @for (item of this.artistList; track item.id) {
@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label"></label>
+                <label class="control-label">收錄專輯（使用 Shift/Ctrl 多選）</label>
                 <div class="gap-2">
                     <select class="form-select flex-grow-1" multiple="multiple" [(ngModel)]="inputSongData.relatedAlbumIds">
 @for (item of this.albumList; track item.id) {
