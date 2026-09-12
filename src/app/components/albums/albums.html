@@ -1,34 +1,44 @@
 <h1>專輯清單</h1>
 
 <p>
-    <button type="button" class="btn btn-success" routerLink="create">新增專輯</button  >
+  <button type="button" class="btn btn-success" routerLink="create">新增專輯</button>
 </p>
 
 <table class="table align-middle">
-    <thead>
-        <tr>
-            <!-- Note: 研議抽出這些名稱放進共用變數的必要性 -->
-            <th>專輯名稱</th>
-            <th>發行日期</th>
-            <th>專輯類型</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@for (item of albumList; track item.id)
-{
-        <tr>
-            <td>{{ item.albumName }}</td>
-            <td>{{ item.releaseDate }}</td>
-            <td>{{ item.albumType }}</td>
-            <td class="d-flex gap-2">
-                <button [routerLink]="['edit',item.id]" type="button" class="btn btn-secondary">編輯</button>
-                <button (click)="albumDelete(item.id)" class="btn btn-danger">刪除</button>
-            </td>
-        </tr>
-}
-        <!-- 超假資料 -->
-        <!-- <tr>
+  <thead>
+    <tr>
+      <!-- Note: 研議抽出這些名稱放進共用變數的必要性 -->
+      <th>專輯<br class="d-md-none">名稱</th>
+      <th>發行<br class="d-md-none">日期</th>
+      <th>專輯<br class="d-md-none">類型</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of albumList; track item.id)
+    {
+    <tr>
+      <td>{{ item.albumName }}</td>
+      <td>{{ item.releaseDate }}</td>
+      <td>{{ item.albumType }}</td>
+      <td>
+        <div class="d-flex flex-column flex-md-row gap-2">
+          <button [routerLink]="['edit',item.id]" type="button" class="btn btn-secondary">
+            <!-- 手機版顯示 icon -->
+            <i class="bi bi-pencil d-md-none"></i>
+            <!-- md 以上顯示文字 -->
+            <span class="d-none d-md-inline">編輯</span>
+          </button>
+          <button (click)="albumDelete(item.id)" class="btn btn-danger">
+            <i class="bi bi-trash d-md-none"></i>
+            <span class="d-none d-md-inline">刪除</span>
+          </button>
+        </div>
+      </td>
+    </tr>
+    }
+    <!-- 超假資料 -->
+    <!-- <tr>
             <td>&#x8FF7;&#x8DE1;&#x6CE2;</td>
             <td>11/01/2023</td>
             <td>Album</td>
@@ -64,6 +74,6 @@
                 <button class="btn btn-danger">刪除</button>
             </td>
         </tr> -->
-        <!-- 假資料end -->
-    </tbody>
+    <!-- 假資料end -->
+  </tbody>
 </table>

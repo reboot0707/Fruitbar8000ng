@@ -1,41 +1,49 @@
 <h1>所有樂曲列表</h1>
 
 <p>
-    <button class="btn btn-success" routerLink="create">新增歌曲資訊</button>
+  <button class="btn btn-success" routerLink="create">新增歌曲資訊</button>
 </p>
 <table class="table align-middle">
-    <thead>
-        <tr>
-            <th>
-                樂曲名稱
-            </th>
-            <th>
-                樂曲創作者
-            </th>
-            <th>
-                收錄專輯
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@for (item of gaSongList; track $index)
-{
-        <tr>
-            <td>
-                {{ item.songName }}
-            </td>
-            <td>
-                {{ item.relatedArtistsString }}
-            </td>
-            <td>
-                {{ item.relatedAlbum.albumName }}
-            </td>
-            <td class="   gap-2">
-                <button class="btn btn-secondary" [routerLink]="['edit',item.id]">編輯</button>
-                <button class="btn btn-danger" (click)="songDelete(item.id)">刪除</button>
-            </td>
-        </tr>
-}
-    </tbody>
+  <thead class="align-middle">
+    <tr>
+      <th>
+        樂曲<br class="d-md-none">名稱
+      </th>
+      <th>樂曲<br class="d-md-none">創作者</th>
+      <th>
+        收錄<br class="d-md-none">專輯
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of gaSongList; track $index)
+    {
+    <tr>
+      <td>
+        {{ item.songName }}
+      </td>
+      <td>
+        {{ item.relatedArtistsString }}
+      </td>
+      <td>
+        {{ item.relatedAlbum.albumName }}
+      </td>
+      <td>
+        <div class="d-flex flex-column flex-md-row gap-2">
+          <button class="btn btn-secondary" [routerLink]="['edit',item.id]">
+            <!-- 手機版顯示 icon -->
+            <i class="bi bi-pencil d-md-none"></i>
+            <!-- md 以上顯示文字 -->
+            <span class="d-none d-md-inline">編輯</span>
+          </button>
+          <button class="btn btn-danger" (click)="songDelete(item.id)">
+            <i class="bi bi-trash d-md-none"></i>
+            <span class="d-none d-md-inline">刪除</span>
+          </button>
+        </div>
+      </td>
+    </tr>
+    }
+  </tbody>
 </table>

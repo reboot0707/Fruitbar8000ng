@@ -1,27 +1,37 @@
 <h1>創作者清單</h1>
 
 <p>
-    <button class="btn btn-success" routerLink="create">新增創作者</button>
+  <button class="btn btn-success" routerLink="create">新增創作者</button>
 </p>
 
 <table class="table align-middle">
-    <thead>
-        <tr>
-            <th>創作者名稱</th>
-            <th>創作者類型</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@for (item of this.artistList; track item.id) {
-      <tr>
-        <td>{{ item.artistName }}</td>
-        <td>{{ item.artistType }}</td>
-        <td class="d-flex gap-2">
-            <button class="btn btn-secondary"  [routerLink]="['edit',item.id]">編輯</button>
-            <button class="btn btn-danger" (click)="artistDelete(item.id)">刪除</button>
-        </td>
+  <thead>
+    <tr>
+      <th>創作者<br class="d-md-none">名稱</th>
+      <th>創作者<br class="d-md-none">類型</th>
+      <th></th>
     </tr>
-}
-    </tbody>
+  </thead>
+  <tbody>
+    @for (item of this.artistList; track item.id) {
+    <tr>
+      <td>{{ item.artistName }}</td>
+      <td>{{ item.artistType }}</td>
+      <td>
+        <div class="d-flex flex-column flex-md-row gap-2">
+          <button class="btn btn-secondary" [routerLink]="['edit',item.id]">
+            <!-- 手機版顯示 icon -->
+            <i class="bi bi-pencil d-md-none"></i>
+            <!-- md 以上顯示文字 -->
+            <span class="d-none d-md-inline">編輯</span>
+          </button>
+          <button class="btn btn-danger" (click)="artistDelete(item.id)">
+            <i class="bi bi-trash d-md-none"></i>
+            <span class="d-none d-md-inline">刪除</span>
+          </button>
+        </div>
+      </td>
+    </tr>
+    }
+  </tbody>
 </table>
