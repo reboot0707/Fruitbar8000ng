@@ -19,7 +19,7 @@ Fruitbar8000ng 採用 Angular 作為前端框架，第一階段主要將既有 M
 | --- | --- | --- |
 | 藝人管理 | `/artists`、`/artists/create`、`/artists/edit/:id` | `/apis/v2/artists` |
 | 專輯管理 | `/albums`、`/albums/create`、`/albums/edit/:id` | `/apis/v2/albums` |
-| 歌曲管理 | `/gallery`、`/gallery/create`、`/gallery/edit/:id` | `/apis/v2/gallery/songs` |
+| 樂曲管理 | `/gallery`、`/gallery/create`、`/gallery/edit/:id` | `/apis/v2/gallery/songs` |
 
 各管理功能已有列表、新增與編輯頁面，以及查詢、新增、修改、刪除的 service 方法。另外包含首頁、隱私權頁面及共用頁首、頁尾。
 
@@ -112,7 +112,7 @@ export const environment = {
 ```text
 src/
 ├── app/
-│   ├── components/       # 首頁、藝人、專輯、歌曲及隱私權頁面
+│   ├── components/       # 首頁、藝人、專輯、樂曲及隱私權頁面
 │   ├── share/components/ # 共用頁首與頁尾
 │   ├── services/         # HTTP API 資料存取
 │   ├── interfaces/       # 資料型別定義
